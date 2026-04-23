@@ -16,9 +16,15 @@ public class DynamicStringList implements StringList {
     }
 
     public String get(int index){
-    for (int i = 0; i < myArr.length; i++) {
-        }
         return myArr[index];
+    }
+    
+    public void set(int index, String value){
+        for (int i = 0; i < myArr.length; i++) {
+            if(i == index){
+                myArr[i] = value;
+            }
+        }
     }
     
 }
