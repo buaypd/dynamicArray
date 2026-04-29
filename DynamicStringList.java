@@ -19,8 +19,11 @@ public class DynamicStringList implements StringList {
         return myArr[index];
     }
     
-    public void set(int index, String value){
+    public void set(int index, String value) throws IndexOutOfBoundsException{
         for (int i = 0; i < myArr.length; i++) {
+            if (i > myArr.length || i < 0){
+                throw new IndexOutOfBoundsException("Index is less then 0 or Greater then the length of the array");
+            }
             if(i == index){
                 myArr[i] = value;
             }
