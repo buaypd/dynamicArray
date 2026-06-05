@@ -5,6 +5,7 @@ public class DynamicStringList implements StringList {
     public String[] myArr;
     public String[] myNewArr;
     public String value;
+    public int size;
 
 
 
@@ -14,11 +15,12 @@ public class DynamicStringList implements StringList {
         this.myNewArr = myNewArr;
         this.value = value;
     }
-
+    @Override
     public String get(int index){
         return myArr[index];
     }
     
+    @Override
     public void set(int index, String value) throws IndexOutOfBoundsException{
         for (int i = 0; i < myArr.length; i++) {
             if (i > myArr.length || i < 0){
@@ -28,6 +30,27 @@ public class DynamicStringList implements StringList {
                 myArr[i] = value;
             }
         }
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+      @Override
+    public void add(String value) {
+        // Resize if array is full
+        if (size == myArr.length) {
+            String[] newArr = new String[myArr.length * 2];
+        }
+        for (int i = 0; i < size; i++) {
+            newArr[i] = myArr[i];
+        }
+        
+        myArr = newArr;
+        // add value to the end;
+        myArr[size] = value;
+        size++;
     }
     
 }
