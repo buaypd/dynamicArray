@@ -52,5 +52,8 @@ public class DynamicStringList implements StringList {
         myArr[size] = value;
         size++;
     }
-    
+    @Override
+    public int capacity() {
+        return myArr.length;
+    }
 }
